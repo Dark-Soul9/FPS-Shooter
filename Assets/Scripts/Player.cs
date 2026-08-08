@@ -27,6 +27,11 @@ public class Player : MonoBehaviour
 
         if (canSwitchWeapons)
             HandleWeaponSwitch();
+        
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            currentWeapon.Reload();
+        }
     }
 
     void HandleShooting()

@@ -11,16 +11,20 @@ public class WaveManager : MonoBehaviour
 
     void Awake() => Instance = this;
 
+    void Start()
+    {
+        StartWave();
+    }
+
     public void StartWave()
     {
         Player.Instance.SetWeaponSwitchState(false);
 
-        zombiesAlive = zombiesPerWave * currentWave;
+        zombiesAlive = zombiesPerWave + (currentWave * 2);
 
-        for (int i = 0; i < zombiesAlive; i++)
-        {
-            ZombieSpawner.Instance.SpawnZombie();
-        }
+        ZombieSpawner.Instance.SpawnWave(zombiesAlive);
+
+        Debug.Log("Wave Started: " + currentWave);
     }
 
     public void ZombieKilled()

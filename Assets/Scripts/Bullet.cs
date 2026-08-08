@@ -35,5 +35,6 @@ public class Bullet : MonoBehaviour
             zombie.TakeDamage(damage);
             Destroy(gameObject);
         }
+        Debug.Log("hit " + other.gameObject.name);
     }
 }
